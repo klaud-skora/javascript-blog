@@ -34,7 +34,8 @@
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
-    optArticleTagsSelector = '.post-tags .list';
+    optArticleTagsSelector = '.post-tags .list',
+    optArticleAuthorSelector = '.post-author .author';
 
   function generateTitleLinks(customSelector = '') {
     console.log('Trying to generate links');
@@ -194,7 +195,7 @@
       console.log('jeden atykuł', article);
 
       /* find author place on article */
-      const authorLink = article.querySelector('.post-author .author');
+      const authorLink = article.querySelector(optArticleAuthorSelector);
       console.log('authorLink', authorLink);
       let html = '';
       console.log('blank html', html);
