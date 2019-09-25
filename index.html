@@ -212,11 +212,11 @@
         </script>
         <script id="template-tag-cloud-link" type="text/x-handlebars-template">
           {{#each tags}}
-          <li><a href="#tag-{{ tag }}" class="tag-size-{{ className }}">{{ tag }} </a></li><li> ({{ count }})</li>
+          <li><a href="#tag-{{ tag }}" class="{{ classPrefix }}{{ className }}">{{ tag }} </a></li><li> ({{ count }})</li>
           {{/each}}
         </script>
         <script id="template-author-cloud-link" type="text/x-handlebars-template">
-          {{#each tags}}
+          {{#each authors}}
           <li><a href="#author-{{ author }}" class="tag-size-{{ className }}">{{ author }} </a></li><li> ({{ count }})</li>
           {{/each}}
         </script>

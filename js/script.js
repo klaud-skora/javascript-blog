@@ -10,7 +10,7 @@
     // eslint-disable-next-line no-undef
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
     // eslint-disable-next-line no-undef
-    tagAuthorLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
+    authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
   };
 
   const select = {
@@ -226,7 +226,7 @@
           tag: tag,
           count: allTags[tag],
           className: calculateTagClass(allTags[tag], tagsParams),
-          classPrefix: opts.cloudClassPrefix
+          classPrefix: opts.cloud.classPrefix
         });
 
         /* [NEW] END LOOP: for each tags in allTags */
@@ -387,15 +387,14 @@
         //console.log(authorLinkHTML);
 
         //allAuthorsHTML += ' (' + allAuthors[author] + ') ';
-        allAuthorsData.tags.push({
+        allAuthorsData.authors.push({
           author: author,
           count: allAuthors[author],
-          className: calculateTagClass(allAuthors[author], authorParams)
+          className: calculateAuthorClass(allAuthors[author], authorParams)
         });
       }
       //console.log('allAuthorsHTML', allAuthorsHTML);
       authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
-
     }
   }
   generateAuthor();
@@ -426,14 +425,23 @@
     generateTitleLinks('[author="' + author + '"]');
   }
 
+  function authorClick(event) {
+    event.preventDefault();
+  }
+
   function addClickListenersToAuthors() {
     /* find all links to authors */
     const links = document.querySelectorAll('.authors a');
+    const author = document.querySelectorAll('.authors li');
+    console.log('a kto to ?', author);
     /* START LOOP: for each link */
     for(let link of links) {
 
       /* add authorClickHandler as event listener for that link */
       link.addEventListener('click', authorClickHandler);
+
+      author.addEventListener('click', authorClick);
+
     /* END LOOP: for each link */
     }
   }

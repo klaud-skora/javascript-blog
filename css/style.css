@@ -87,6 +87,11 @@ body {
   margin-bottom: 12px;
 }
 
+.post-author li {
+  list-style-type: none;
+  display: inline-block;
+}
+
 /* Post */
 .post {
   display: none;
