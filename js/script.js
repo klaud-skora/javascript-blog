@@ -424,24 +424,21 @@
 
     generateTitleLinks('[author="' + author + '"]');
   }
-
-  function authorClick(event) {
+  function authorClicked(event) {
     event.preventDefault();
   }
 
   function addClickListenersToAuthors() {
     /* find all links to authors */
     const links = document.querySelectorAll('.authors a');
-    const author = document.querySelectorAll('.authors li');
+    const author = document.querySelector('.post-author li');
     console.log('a kto to ?', author);
+    author.addEventListener('click', authorClicked);
     /* START LOOP: for each link */
     for(let link of links) {
 
       /* add authorClickHandler as event listener for that link */
       link.addEventListener('click', authorClickHandler);
-
-      author.addEventListener('click', authorClick);
-
     /* END LOOP: for each link */
     }
   }
