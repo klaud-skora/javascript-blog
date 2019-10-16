@@ -181,6 +181,7 @@ a:hover {
   left: 5%;
   top: 0;
   width: 90%;
+  transition: opacity .3s;
 }
 
 .post.active {
