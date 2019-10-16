@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #fff;
+  background: #d1ccc0;
   font-family: "Source Sans Pro", sans-serif;
   color: #444;
   font-weight: 300;
@@ -32,6 +32,14 @@ body {
   color: #777777;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #444;
+}
+
 /* Layout */
 .wrapper {
   display: -ms-flexbox;
@@ -50,7 +58,7 @@ body {
 }
 
 .sidebar, .posts {
-  background: #fff;
+  background: #f7f1e3;
   margin-right: 10px;
   padding: 40px;
   border: 1px solid #444;
@@ -58,62 +66,48 @@ body {
 }
 
 /* Logo */
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-shadow-pop-top {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    transform: translateY(0);
+  }
+  100% {
+    text-shadow: 0 -1px #555555, 0 -2px #555555, 0 -3px #555555, 0 -4px #555555, 0 -2px #555555, 0 -3px #555555, 0 -3px #555555, 0 -3px #555555;
+    transform: translateY(8px);
+  }
+}
+
 .logo {
   font-family: "Sacramento", cursive;
   font-weight: 400;
   font-size: 104px;
   line-height: 1;
+  text-shadow: 1px 1px 1px #2c2c54;
   text-align: center;
+  color: #fff;
+  animation: text-focus-in 1s forwards;
+  padding: 30px;
+  border: 1px dotted transparent;
+}
+
+.logo:hover {
+  border-color: #fff;
+  cursor: pointer;
+  animation: text-shadow-pop-top .5s forwards;
 }
 
 /* Lists */
-.list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list .active {
-  font-weight: bold;
-  color: black;
-}
-
-.list-horizontal li {
-  display: inline-block;
-}
-
-/* Authors */
-.authors li {
-  margin-bottom: 12px;
-}
-
-.post-author li {
-  list-style-type: none;
-  display: inline-block;
-}
-
-/* Post */
-.post {
-  display: none;
-}
-
-.post.active {
-  display: block;
-}
-
-.post-author {
-  font-style: italic;
-}
-
-.post-tags {
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.post-tags p {
-  margin: 0 10px 0 0;
-}
-
 .tag-size-5 {
   color: #16A311;
   font-size: 30px;
@@ -137,5 +131,103 @@ body {
 .tag-size-1 {
   color: #E33077;
   font-size: 18px;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list .active {
+  font-weight: bold;
+  color: #FF416C;
+}
+
+.titles .active {
+  font-size: 120%;
+}
+
+.list-horizontal li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Authors */
+.authors li {
+  margin-bottom: 12px;
+}
+
+.post-author li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.list-authors li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Post */
+.posts {
+  position: relative;
+  overflow: auto;
+}
+
+.post {
+  opacity: 0;
+  z-index: 0;
+  position: absolute;
+  left: 5%;
+  top: 0;
+  width: 90%;
+}
+
+.post.active {
+  opacity: 1;
+  z-index: 100;
+}
+
+.post-author {
+  font-style: italic;
+}
+
+.post-tags {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.post-tags p {
+  margin: 0 10px 0 0;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .wrapper .sidebar {
+    width: 50%;
+    text-align: center;
+  }
+  .wrapper .posts {
+    -ms-flex: 100%;
+        flex: 100%;
+    -ms-flex-order: -1;
+        order: -1;
+  }
+  .list a {
+    font-size: 16px;
+  }
+  .list-authors li {
+    display: block;
+  }
+  .list-authors li:nth-child(odd) {
+    margin: 0;
+  }
+  .list-authors li:nth-child(even) {
+    margin: 0;
+    margin-bottom: 15px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
