@@ -214,8 +214,9 @@ a:hover {
   .wrapper .posts {
     -ms-flex: 100%;
         flex: 100%;
-    -ms-flex-order: -1;
-        order: -1;
+    height: 350px;
+    -ms-flex-order: 100;
+        order: 100;
   }
   .list a {
     font-size: 16px;

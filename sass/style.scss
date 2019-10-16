@@ -196,12 +196,12 @@ a {
   left: 5%;
   top: 0;
   width: 90%;
+  transition: opacity .3s;
 
   &.active {
     //display: block;
     opacity: 1;
     z-index: 100;
-
   }
 }
 
@@ -227,7 +227,8 @@ a {
     }
     .posts {
       flex: 100%;
-      order: -1;
+      height: 350px;
+      order: 100;
     }
   }
   .list a {
